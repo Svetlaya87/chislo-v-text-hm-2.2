@@ -39,6 +39,7 @@ function ChisloSlovami() {
 
 
     let x = {
+    	
         '1': 'одна',
         '2' :'две',
         '3': 'три',
@@ -49,7 +50,7 @@ function ChisloSlovami() {
         '8' : 'восемь',
         '9' : 'девять',
         '10' : 'десять',
-        '11' : 'одинацдцать',
+        '11' : 'одиннацдцать',
         '12' : 'двенадцать',
         '13' : 'тринадцать',
         '14' : 'четырнадцать',
@@ -90,24 +91,24 @@ function ChisloSlovami() {
 
         if (dataFromUser[dataFromUser.length-2] == 10) {
 
-            a =  dataFromUser[dataFromUser.length-2];
-            b=  dataFromUser[dataFromUser.length-1];
+            a =  +dataFromUser[dataFromUser.length-2];
+            b =  +dataFromUser[dataFromUser.length-1];
 
-            dataFromUser[dataFromUser.length-2] = dataFromUser.reduce(
-                function(a,b){return a+b;});
+            dataFromUser[dataFromUser.length-2] = a+b;
 
                 console.log( dataFromUser, 'после сложения');   
+                dataFromUser.pop();
 
 
-            removeLast =  dataFromUser.splice(dataFromUser[dataFromUser.length-1]);
+            
 
             console.log(dataFromUser[dataFromUser.length-2], 'предпоследний элемент');
-            console.log(removeLast, 'новый массив');
+            
 
         }
         
-        for (let i of removeLast) {
-                if (x[i]){
+        for (let i of dataFromUser) {
+                if (i>0){
                     worlds.push(x[i]);
                 }
         }
@@ -115,34 +116,45 @@ function ChisloSlovami() {
         
 
     } else if (dataFromUser.length==2 ) {
-        dataFromUser[0]=dataFromUser[0]*10;
+        dataFromUser[0]= dataFromUser[0]*10;
 
         
         for (let i of dataFromUser) {
             
-            if (x[i]==10){
+            if (i==10){
+            
+            console.log(x[i]);
 
-                x[i]=  dataFromUser[0]+ dataFromUser[1];
-
+                i=  dataFromUser[0]+ +dataFromUser[1];
+                
                 worlds.push(x[i]);
+                break;
             } else if (x[i]) {
 
                 worlds.push(x[i]);
 
 
             }
+            
+            
 
         } 
+        
+        
+
     }   else if (dataFromUser.length==1) {
 
-        if (x[i]){
-            worlds= worlds.push(x[i]);
+        if (dataFromUser[0]>0){
+            let j = dataFromUser[0];
+            worlds.push(x[j]);
+        }else if (dataFromUser[0] ==0 ){
+            worlds.push('ноль');
         }
 
     } 
 
 
-    worlds = worlds.join(' ');
+    
 
        
 
@@ -166,9 +178,27 @@ function ChisloSlovami() {
             Result.innerHTML=`${worlds} гривен`;
         }*/
     
+    if ( (worlds[worlds.length-1] == x['1']) )
+    	 {
+    		console.log(worlds);
+    		worlds = worlds.join(' ');
+    		Result.innerHTML=`${worlds} гривна`; 
+    } else if ((worlds[worlds.length-1] == x['2']) ||
+    		(worlds[worlds.length-1] == x['3']) ||
+    		(worlds[worlds.length-1] == x['4'])
     
-
-        Result.innerHTML=`${worlds}`; 
+    ){
+    		console.log(worlds);
+    		worlds = worlds.join(' ');
+    		Result.innerHTML=`${worlds} гривны`; 
+    }else {
+    		worlds = worlds.join(' ');
+    		Result.innerHTML=`${worlds} гривен`;
+    }
+    
+   
+	
+        //Result.innerHTML=`${worlds}`; 
 
 
     
