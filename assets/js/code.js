@@ -159,24 +159,6 @@ function ChisloSlovami() {
        
 
     
-        /*if (worlds[worlds.length-1] ==1   ) {
-            
-
-            Result.innerHTML=`${worlds} гривна`;
-
-        } /*else if (worlds[worlds.length-1] >=2 && worlds[worlds.length-1] <= 4) {
-
-            Result.innerHTML=`${worlds} гривны`;
-            
-        } /*else if (
-            (worlds[worlds.length-1] >=5 && worlds[worlds.length-1] <= 9) |
-            (worlds[worlds.length-1] == 0) |
-            (worlds[worlds.length-2] == 1)
-
-
-        ) {
-            Result.innerHTML=`${worlds} гривен`;
-        }*/
     
     if ( (worlds[worlds.length-1] == x['1']) )
     	 {
@@ -197,32 +179,7 @@ function ChisloSlovami() {
     }
     
    
-	
-        //Result.innerHTML=`${worlds}`; 
-
-
-    
-    
-    // console.log(abbetNumbers);
-        //console.log(worlds[worlds.length-1]);
-        
-
-
-    //Result.innerHTML=`${worlds} ${abbetNumbers[0]}`; 
-
-    
-    
-     
-   
-    
-    
-    
-    //Result.innerHTML=`${worlds} ${abbetNumbers[0]}`;  
- 
-    
-
-
-          
+	     
     
 
     
